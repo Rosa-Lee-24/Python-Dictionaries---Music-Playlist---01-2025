@@ -1,0 +1,95 @@
+#Playlist
+playlist = {
+    "Shape of You": {"artist": "Ed Sheeran", "genre": "Pop"},
+    "Blinding Lights": {"artist": "The Weeknd", "genre": "Pop"},
+    "Billie Jean": {"artist": "Michael Jackson", "genre": "Pop"},
+    "Levitating": {"artist": "Dua Lipa", "genre": "Pop"},
+    "Stay": {"artist": "The Kid LAROI & Justin Bieber", "genre": "Pop"},
+    "Bohemian Rhapsody": {"artist": "Queen", "genre": "Rock"},
+    "Hotel California": {"artist": "Eagles", "genre": "Rock"},
+    "Smells Like Teen Spirit": {"artist": "Nirvana", "genre": "Rock"},
+    "Back in Black": {"artist": "AC/DC", "genre": "Rock"},
+    "Sweet Child O' Mine": {"artist": "Guns N' Roses", "genre": "Rock"},
+    "Blinding Lights": {"artist": "The Weeknd", "genre": "RnB"},
+    "Can't Feel My Face": {"artist": "The Weeknd", "genre": "RnB"},
+    "Leave the Door Open": {"artist": "Bruno Mars & Anderson .Paak", "genre": "RnB"},
+    "Talk": {"artist": "Khalid", "genre": "RnB"},
+    "Good Days": {"artist": "SZA", "genre": "RnB"},
+    "Best Part": {"artist": "Daniel Caesar ft. H.E.R.", "genre": "RnB"},
+    "On & On": {"artist": "Erykah Badu", "genre": "RnB"},
+    "Adorn": {"artist": "Miguel", "genre": "RnB"},
+    "Focus": {"artist": "H.E.R.", "genre": "RnB"},
+    "U Got It Bad": {"artist": "Usher", "genre": "RnB"},
+    "Respect": {"artist": "Aretha Franklin", "genre": "Soul"},
+    "Ain't No Mountain High Enough": {"artist": "Marvin Gaye & Tammi Terrell", "genre": "Soul"},
+    "Let's Stay Together": {"artist": "Al Green", "genre": "Soul"},
+    "What's Going On": {"artist": "Marvin Gaye", "genre": "Soul"},
+    "I Heard It Through the Grapevine": {"artist": "Gladys Knight & The Pips", "genre": "Soul"},
+    "Clair de Lune": {"artist": "Claude Debussy", "genre": "Classical"},
+    "Canon in D": {"artist": "Johann Pachelbel", "genre": "Classical"},
+    "Symphony No. 5": {"artist": "Ludwig van Beethoven", "genre": "Classical"},
+    "Eine kleine Nachtmusik": {"artist": "Wolfgang Amadeus Mozart", "genre": "Classical"},
+    "Air on the G String": {"artist": "Johann Sebastian Bach", "genre": "Classical"}
+}
+
+#Add function
+def add_song(title, artist, genre):
+    # Adding a new song to the playlist dictionary
+    playlist[title] = {'artist': artist, 'genre': genre}
+
+
+# Define the view_playlist function
+def view_playlist():
+    # Printing all songs in a readable format
+    if not playlist:
+        print("The playlist is empty.")
+    else:
+        for title, details in playlist.items():
+            print("Song: '{}', Artist: '{}', Genre: '{}'".format(title, details['artist'], details['genre']))
+
+# Define the update_song function
+def update_song(title, artist=None, genre=None):
+    # Check if the song exists in the playlist
+    if title in playlist:
+        if artist:
+            playlist[title]['artist'] = artist
+        if genre:
+            playlist[title]['genre'] = genre
+        print("Song '{}' has been updated.".format(title))
+    else:
+        print("Song '{}' not found in the playlist.".format(title))
+
+#Define the delete function
+def delete_song(title):
+    # Check if the song exists in the playlist
+    if title in playlist:
+        del playlist[title]  # Remove the song from the playlist
+        print("Song '{}' has been deleted from the playlist.".format(title))
+    else:
+        print("Song '{}' not found in the playlist.".format(title))
+
+#Add a new song
+add_song("Eastside", "Hassley", "pop")
+
+print(playlist)
+
+add_song("2 be loved","Lizzo", "pop")
+
+print(playlist)
+
+#View the playlist
+view_playlist()
+
+#Update the  playlist
+update_song("Shape of You", artist="Ed Sheeran (Remix)", genre="Pop/R&B")
+
+update_song("Shape of You","Shape of Us")
+
+print("\nUpdated Playlist:")
+print(playlist)
+
+#Delete a song from the playlist
+print(playlist)
+delete_song("Shape of You")
+
+view_playlist()
